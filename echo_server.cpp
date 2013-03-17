@@ -26,9 +26,9 @@ int main (int argc, char *argv[])
   if ( argc > 1 ) {
     std::string port( argv[1] );
     std::string sock_str = "tcp://127.0.0.1:" + port;
-    socket.bind( sock_str.c_str() );
+    socket.connect( sock_str.c_str() );
   } else {
-    socket.bind( "tcp://127.0.0.1:5000");
+    socket.connect( "tcp://127.0.0.1:5001");
   }
 
   while ( true ) {
