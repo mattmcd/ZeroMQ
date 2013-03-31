@@ -7,7 +7,7 @@
 //        Version:  1.0
 //        Created:  17/03/13 08:58:46
 //       Revision:  none
-//       Compiler:  g++
+//       Compiler:  clang++
 // 
 //         Author:  Matt McDonnell (MMcD), matt@matt-mcdonnell.com
 //        Company:  
@@ -23,10 +23,13 @@ int main (int argc, char *argv[])
 {
   zmq::context_t context(1);
   zmq::socket_t socket ( context, ZMQ_REQ );
+
+  std::vector<std::string> args(argc);
+  args.assign( argv + 1, argv+argc);
   if ( argc > 1) {
+
     // Attach to a list of sockets
-    for (int i=1; i<argc; i++ ){
-      std::string port(argv[i]);
+    for ( auto port : args ){
       std::string socket_str = "tcp://127.0.0.1:" + port;
       socket.connect( socket_str.c_str() );
     }

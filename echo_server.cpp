@@ -7,7 +7,7 @@
 //        Version:  1.0
 //        Created:  17/03/13 08:58:46
 //       Revision:  none
-//       Compiler:  g++
+//       Compiler:  clang++
 // 
 //         Author:  Matt McDonnell (MMcD), matt@matt-mcdonnell.com
 //        Company:  

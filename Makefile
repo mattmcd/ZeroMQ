@@ -8,3 +8,12 @@ echo_client: echo_client.cpp
 
 queue: queue.cpp
 	clang++ -std=c++0x -o queue queue.cpp -lzmq 
+
+test: queue echo_client echo_server
+	./queue &
+	./echo_server &
+	./echo_server &
+	./echo_client &
+
+teardown: 
+	pkill "queue|echo_server|echo_client"
