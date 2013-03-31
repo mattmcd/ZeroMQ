@@ -27,14 +27,13 @@ int main (int argc, char *argv[])
   std::vector<std::string> args(argc);
   args.assign( argv + 1, argv+argc);
   if ( argc > 1) {
-
     // Attach to a list of sockets
     for ( auto port : args ){
       std::string socket_str = "tcp://127.0.0.1:" + port;
       socket.connect( socket_str.c_str() );
     }
   } else {
-    socket.connect( "tcp://127.0.0.1:5000");
+    socket.connect( "tcp://127.0.0.1:5000" );
   }
 
   for( int i=0; i<10; i++ ) {
